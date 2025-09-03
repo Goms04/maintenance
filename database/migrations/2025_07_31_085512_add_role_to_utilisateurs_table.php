@@ -13,9 +13,11 @@ class AddRoleToUtilisateursTable extends Migration
      */
     public function up()
     {
-       Schema::table('utilisateurs', function (Blueprint $table) {
-        $table->string('role')->default('technicien'); // ou 'admin', selon tes cas
-    });
+        Schema::disableForeignKeyConstraints();
+        Schema::table('utilisateurs', function (Blueprint $table) {
+            $table->string('role')->default('technicien'); // ou 'admin', selon tes cas
+        });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

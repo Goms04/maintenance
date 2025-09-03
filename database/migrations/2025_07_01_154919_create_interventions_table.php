@@ -13,6 +13,7 @@ class CreateInterventionsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('interventions', function (Blueprint $table) {
             $table->id();
             $table->string('Nom');
@@ -22,6 +23,7 @@ class CreateInterventionsTable extends Migration
         $table->string('Description')->nullable();
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

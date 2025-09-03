@@ -13,11 +13,13 @@ class AddNomSiteToInterventionsTable extends Migration
      */
     public function up()
     {
+        
         Schema::table('interventions', function (Blueprint $table) {
             Schema::table('interventions', function (Blueprint $table) {
             $table->string('Nom_site')->nullable()->after('Nom_Agence');
         });
         });
+        
     }
 
     /**

@@ -13,6 +13,7 @@ class CreateRapportsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('rapports', function (Blueprint $table) {
         $table->id();
         $table->unsignedBigInteger('intervention_id');
@@ -23,6 +24,7 @@ class CreateRapportsTable extends Migration
         $table->timestamps();
          $table->foreign('intervention_id')->references('id')->on('interventions')->onDelete('cascade');
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

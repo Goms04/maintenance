@@ -13,6 +13,7 @@ class ModifyEnumCategoryOnClientsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::table('clients', function (Blueprint $table) {
     DB::statement("ALTER TABLE clients MODIFY COLUMN category ENUM(
         'banque', 'assurance', 'telecom', 'gouvernement', 'prive',
@@ -20,6 +21,7 @@ class ModifyEnumCategoryOnClientsTable extends Migration
     )");
 });
 
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

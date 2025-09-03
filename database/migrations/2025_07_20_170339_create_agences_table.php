@@ -13,6 +13,7 @@ class CreateAgencesTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('agences', function (Blueprint $table) {
             $table->id();
     $table->foreignId('client_id')->constrained()->onDelete('cascade');
@@ -22,6 +23,7 @@ class CreateAgencesTable extends Migration
     $table->string('phone')->nullable();
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

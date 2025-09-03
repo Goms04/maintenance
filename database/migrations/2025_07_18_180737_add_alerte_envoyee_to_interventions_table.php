@@ -13,9 +13,11 @@ class AddAlerteEnvoyeeToInterventionsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::table('interventions', function (Blueprint $table) {
              $table->boolean('alerte_envoyee')->default(false);
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

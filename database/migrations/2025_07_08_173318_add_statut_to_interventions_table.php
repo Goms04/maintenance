@@ -13,9 +13,11 @@ class AddStatutToInterventionsTable extends Migration
      */
 public function up()
 {
+    Schema::disableForeignKeyConstraints();
     Schema::table('interventions', function (Blueprint $table) {
         $table->string('statut')->nullable()->after('est_effectuee');
     });
+    Schema::enableForeignKeyConstraints();
 }
 
     /**

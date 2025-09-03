@@ -13,12 +13,13 @@ class AddEquipementIdToInterventionsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::table('interventions', function (Blueprint $table) {
         $table->unsignedBigInteger('equipement_id')->nullable();
 
         $table->foreign('equipement_id')->references('id')->on('equipements')->onDelete('cascade');
-    });    
-       
+    });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

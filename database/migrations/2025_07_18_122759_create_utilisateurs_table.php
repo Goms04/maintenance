@@ -13,6 +13,7 @@ class CreateUtilisateursTable extends Migration
      */
 public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('utilisateurs', function (Blueprint $table) {
             $table->id();
 $table->string('first_name');
@@ -25,7 +26,8 @@ $table->string('first_name');
             $table->enum('gender', ['male', 'female', 'other'])->nullable();
             $table->boolean('terms')->default(false); 
             $table->timestamps();
-   });
+        });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

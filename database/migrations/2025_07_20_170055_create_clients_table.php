@@ -13,6 +13,7 @@ class CreateClientsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
              $table->string('name');
@@ -20,6 +21,7 @@ class CreateClientsTable extends Migration
     $table->text('description')->nullable();
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

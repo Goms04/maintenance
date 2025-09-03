@@ -13,9 +13,11 @@ class AddEstEffectueeToInterventionsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::table('interventions', function (Blueprint $table) {
         $table->boolean('est_effectuee')->nullable()->after('Description');
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

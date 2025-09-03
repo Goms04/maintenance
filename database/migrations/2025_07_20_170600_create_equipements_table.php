@@ -13,6 +13,7 @@ class CreateEquipementsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('equipements', function (Blueprint $table) {
     $table->id();
     $table->foreignId('agency_id')->constrained()->onDelete('cascade');
@@ -26,6 +27,7 @@ class CreateEquipementsTable extends Migration
     $table->enum('status', ['actif', 'maintenance', 'hors_service']);
     $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

@@ -13,9 +13,11 @@ class AddClientToRapportsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::table('rapports', function (Blueprint $table) {
           $table->string('client')->nullable()->before('site');
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
