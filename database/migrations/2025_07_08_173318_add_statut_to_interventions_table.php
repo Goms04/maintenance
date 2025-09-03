@@ -1,0 +1,32 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddStatutToInterventionsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+public function up()
+{
+    Schema::table('interventions', function (Blueprint $table) {
+        $table->string('statut')->nullable()->after('est_effectuee');
+    });
+}
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('interventions', function (Blueprint $table) {
+            //
+        });
+    }
+}
